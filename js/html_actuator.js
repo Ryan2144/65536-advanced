@@ -67,7 +67,40 @@ HTMLActuator.prototype.addTile = function (tile) {
   var value = tile.value;
 
   if (value > Math.pow(2, 200)) classes.push("tile-super");
-  if (value >= Math.pow(10, 66)) {
+  if (value >= Math.pow(10, 99)) {
+     value = Math.floor(value / Math.pow(10, 99)) + "DTR";
+  }
+  else if (value >= Math.pow(10, 96)) {
+     value = Math.floor(value / Math.pow(10, 96)) + "UTR";
+  }
+  else if (value >= Math.pow(10, 93)) {
+     value = Math.floor(value / Math.pow(10, 93)) + "TR";
+  }
+  else if (value >= Math.pow(10, 90)) {
+     value = Math.floor(value / Math.pow(10, 90)) + "NV";
+  }
+  else if (value >= Math.pow(10, 87)) {
+     value = Math.floor(value / Math.pow(10, 87)) + "OcV";
+  }
+  else if (value >= Math.pow(10, 84)) {
+     value = Math.floor(value / Math.pow(10, 84)) + "SpV";
+  }
+  else if (value >= Math.pow(10, 81)) {
+     value = Math.floor(value / Math.pow(10, 81)) + "SxV";
+  }
+  else if (value >= Math.pow(10, 78)) {
+     value = Math.floor(value / Math.pow(10, 78)) + "QiV";
+  }
+  else if (value >= Math.pow(10, 75)) {
+     value = Math.floor(value / Math.pow(10, 75)) + "QV";
+  }
+  else if (value >= Math.pow(10, 72)) {
+     value = Math.floor(value / Math.pow(10, 72)) + "TV";
+  }
+  else if (value >= Math.pow(10, 69)) {
+     value = Math.floor(value / Math.pow(10, 69)) + "DV";
+  }
+  else if (value >= Math.pow(10, 66)) {
      value = Math.floor(value / Math.pow(10, 66)) + "UV";
   }
   else if (value >= Math.pow(10, 63)) {
