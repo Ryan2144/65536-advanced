@@ -58,19 +58,74 @@ HTMLActuator.prototype.addTile = function (tile) {
   var positionClass = this.positionClass(position);
 
   // We can't use classlist because it somehow glitches when replacing classes
-  var classes = ["tile", "tile-" + tile.value, positionClass];
+  if (tile.value > 536870912) {
+    var classes = ["tile", "tile-" + "2-" + Math.log2(tile.value), positionClass];
+  }
+  else {
+    var classes = ["tile", "tile-" + tile.value, positionClass];
+  }
   var value = tile.value;
 
-  if (value > 590295810358705700000) classes.push("tile-super");
-  if (value > 590295810358705700000) {
-    (function() {
-      var i = 1, n = value;
-      while (n > 2) {
-        i++;
-        n /= 2;
-      }
-      value = '2^' + i;
-    })();
+  if (value > Math.pow(2, 200)) classes.push("tile-super");
+  if (value >= Math.pow(10, 66)) {
+     value = Math.floor(value / Math.pow(10, 66)) + "UV";
+  }
+  else if (value >= Math.pow(10, 63)) {
+     value = Math.floor(value / Math.pow(10, 63)) + "V";
+  }
+  else if (value >= Math.pow(10, 60)) {
+     value = Math.floor(value / Math.pow(10, 60)) + "ND";
+  }
+  else if (value >= Math.pow(10, 57)) {
+     value = Math.floor(value / Math.pow(10, 57)) + "OcD";
+  }
+  else if (value >= Math.pow(10, 54)) {
+     value = Math.floor(value / Math.pow(10, 54)) + "SpD";
+  }
+  else if (value >= Math.pow(10, 51)) {
+     value = Math.floor(value / Math.pow(10, 51)) + "SxD";
+  }
+  else if (value >= Math.pow(10, 48)) {
+     value = Math.floor(value / Math.pow(10, 48)) + "QiD";
+  }
+  else if (value >= Math.pow(10, 45)) {
+     value = Math.floor(value / Math.pow(10, 45)) + "QD";
+  }
+  else if (value >= Math.pow(10, 42)) {
+     value = Math.floor(value / Math.pow(10, 42)) + "TD";
+  }
+  else if (value >= Math.pow(10, 39)) {
+     value = Math.floor(value / Math.pow(10, 39)) + "DD";
+  }
+  else if (value >= Math.pow(10, 36)) {
+     value = Math.floor(value / Math.pow(10, 36)) + "UD";
+  }
+  else if (value >= Math.pow(10, 33)) {
+     value = Math.floor(value / Math.pow(10, 33)) + "D";
+  }
+  else if (value >= Math.pow(10, 30)) {
+     value = Math.floor(value / Math.pow(10, 30)) + "N";
+  }
+  else if (value >= Math.pow(10, 27)) {
+     value = Math.floor(value / Math.pow(10, 27)) + "Oc";
+  }
+  else if (value >= Math.pow(10, 24)) {
+     value = Math.floor(value / Math.pow(10, 24)) + "Sp";
+  }
+  else if (value >= Math.pow(10, 21)) {
+     value = Math.floor(value / Math.pow(10, 21)) + "Sx";
+  }
+  else if (value >= Math.pow(10, 18)) {
+     value = Math.floor(value / Math.pow(10, 18)) + "Qi";
+  }
+  else if (value >= Math.pow(10, 15)) {
+     value = Math.floor(value / Math.pow(10, 15)) + "Q";
+  }
+  else if (value >= Math.pow(10, 12)) {
+     value = Math.floor(value / Math.pow(10, 12)) + "T";
+  }
+  else if (value >= Math.pow(10, 9)) {
+     value = Math.floor(value / Math.pow(10, 9)) + "B";
   }
 
   this.applyClasses(wrapper, classes);
