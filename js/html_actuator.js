@@ -58,7 +58,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   var positionClass = this.positionClass(position);
 
   // We can't use classlist because it somehow glitches when replacing classes
-  if (tile.value > 536870912) {
+  if (tile.value > 67108864) {
     var classes = ["tile", "tile-" + "2-" + Math.log2(tile.value), positionClass];
   }
   else {
@@ -126,6 +126,9 @@ HTMLActuator.prototype.addTile = function (tile) {
   }
   else if (value >= Math.pow(10, 9)) {
      value = Math.floor(value / Math.pow(10, 9)) + "B";
+  }
+  else if (value >= Math.pow(10, 8)) {
+     value = Math.floor(value / Math.pow(10, 6)) + "M";
   }
 
   this.applyClasses(wrapper, classes);
